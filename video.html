@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vídeo</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      display: flex;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+    }
+
+    video {
+      /* width: 80%; */
+      max-width: 100%;
+      height: auto;
+      /* border: 2px solid #fff; */
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+  <video id="video" width="100%" height="100%" autoplay>
+    <source src="./casamento.mp4" type="video/mp4">
+  </video>
+
+
+  <script defer>
+
+    function playVideoOnLoad() {
+      var promise = document.querySelector('video').play();
+
+      if (promise !== undefined) {
+        promise.then(_ => {
+          // Autoplay started!
+        }).catch(error => {
+          // Autoplay was prevented.
+          // Show a "Play" button so that user can start playback.
+        });
+      }
+    }
+
+    // Adiciona o ouvinte de eventos DOMContentLoaded
+    document.addEventListener('DOMContentLoaded', playVideoOnLoad);
+  </script>
+
+</body>
+
+</html>
